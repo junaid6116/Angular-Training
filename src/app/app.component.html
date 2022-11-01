@@ -1,0 +1,40 @@
+
+
+
+<div class="container">
+    <div class="row">
+      <div class="col-xs-12">
+        <h4>Normal Binding</h4>
+        <input type="text" [(ngModel)]="title">
+        <p>{{title}}</p>
+        <hr>
+        <h4>string interpolation</h4>
+        <p>{{ServerName}} with ServerID {{ServerId}} is {{getservicestatus()}}</p>
+        <hr>
+        <h4>Property Binding set timeout</h4>
+        <button class="btn btn-primary" [disabled]="!Allownewserver"  (click)="OncreateServer()">
+          Add server
+        </button>
+        <!--<p [innerText]="allowNewServer"></p>-->
+        {{serverCreationStatus}}
+        
+        <hr>
+        <h4>Passing data and using Data event</h4>
+        <label>server</label>
+        <input type="text" class="form-control" (input)="OnUpdateServerName($event)">
+        <!-- {{NewserverName}} -->
+        <hr>
+        <h4>on click ngIf implementation</h4>
+        <button class="btn btn-primary" [disabled]="!Allownewserver"  (click)="OncreateServer()">
+          Add server
+        </button>
+        <p *ngIf="servercreated">Server Was created and the Name is {{NewserverName}}</p>
+        <hr>
+        <h4>nested components</h4>
+        <app-server></app-server>   
+        <!-- <app-server2></app-server2> -->
+        <!-- <div app-server2></div> -->
+        <div class="app-server2"></div>
+      </div>
+    </div>
+  </div>
